@@ -1,0 +1,19 @@
+<html>
+<body>
+Id: <input id="productId" value="1"/>
+<button onclick="run('/cache-control')">
+    Cache control
+</button>
+<button onclick="run('/etag')">
+    Etag
+</button>
+<script>
+    async function run(uri) {
+        const productId = document.getElementById('productId').value;
+        const response = await fetch(uri + '/' + productId);
+        const product = await response.json();
+        console.log(product);
+    }
+</script>
+</body>
+</html>
